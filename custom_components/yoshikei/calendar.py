@@ -38,10 +38,15 @@ class YoshikeiCalender(CalendarEntity):
     def __init__(self, hass: HomeAssistant, name: str, client: Yoshikei) -> None:
         """Initialize YoshikeiCalender."""
         self.hass = hass
-        self.name = name
+        self._name = name
         self._client = client
         self._event = None
         self.entity_id = f"calendar.{name.lower().replace(' ', '_')}"
+
+    @property
+    def name(self) -> str:
+        """Return the name of the calendar."""
+        return self._name
 
     @property
     def event(self) -> CalendarEvent | None:
