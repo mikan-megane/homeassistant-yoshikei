@@ -1,0 +1,15 @@
+{
+  "domain": "yoshikei",
+  "name": "yoshikei",
+  "codeowners": [
+    "@mikan-megane"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://www.home-assistant.io/integrations/yoshikei",
+  "homekit": {},
+  "iot_class": "cloud_polling",
+  "requirements": [],
+  "ssdp": [],
+  "zeroconf": []
+}
