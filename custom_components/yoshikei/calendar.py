@@ -68,9 +68,10 @@ class YoshikeiCalender(CalendarEntity):
         """
         if self._event is None:
             self._event = []
-        _event = self._event + await self._client.get_events(
+        cullent_event = await self._client.get_events(
             start=start_date.date(), end=end_date.date()
         )
+        _event = self._event + cullent_event
         uid_list = [dict.uid for dict in _event]
         _event = [
             dict for i, dict in enumerate(_event) if dict.uid not in uid_list[0:i]
@@ -79,4 +80,4 @@ class YoshikeiCalender(CalendarEntity):
         if not _event:
             _event = None
         self._event = _event
-        return self._event
+        return cullent_event
