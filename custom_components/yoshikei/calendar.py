@@ -40,7 +40,7 @@ class YoshikeiCalender(CalendarEntity):
         self.hass = hass
         self._name = name
         self._client = client
-        self._event = []
+        self._event = None
         self.entity_id = f"calendar.{name.lower().replace(' ', '_')}"
 
     @property
@@ -76,5 +76,7 @@ class YoshikeiCalender(CalendarEntity):
             dict for i, dict in enumerate(_event) if dict.uid not in uid_list[0:i]
         ]
         _event.sort(key=lambda x: x.start)
+        if not _event:
+            _event = None
         self._event = _event
         return self._event

@@ -99,6 +99,7 @@ class Yoshikei:
                 r"(\d+)/(\d+)/(\d+) .*", "\\1-\\2-\\3", day["deliverydate"], 1
             )
             data[index]["deliverydate"] = date.fromisoformat(date_str)
+        self.logger.debug("data: %s", data)
         return data
 
     async def get_events(self, start: date, end: date) -> list[CalendarEvent]:
