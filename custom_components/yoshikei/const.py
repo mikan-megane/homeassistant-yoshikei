@@ -118,7 +118,10 @@ class Yoshikei:
                         start=day["deliverydate"],
                         end=day["deliverydate"],
                         summary=item["itemname"],
-                        description=item["menuname"],
+                        description="https://www2.yoshikei-dvlp.co.jp/webodr/apl/10/"
+                        + item["link"],
+                        location=item["menuname"],
+                        uid=item["link"],
                     )
                 )
             start += timedelta(days=1)
