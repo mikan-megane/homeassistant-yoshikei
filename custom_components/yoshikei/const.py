@@ -63,6 +63,7 @@ class Yoshikei:
             list[dict[str, str]]: A list of dictionaries containing the data.
         """
         url = "https://www2.yoshikei-dvlp.co.jp/webodr/apl/10/100301_A.aspx"
+        start = start - timedelta(days=start.isoweekday() - 1)
         date_str = start.strftime("%Y/%m/%d").replace("/", "%2F")
         async with self.session.post(
             url,
